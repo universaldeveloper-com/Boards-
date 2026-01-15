@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Prep Hub</title>
+    <style>
+        :root {
+            --bg-color: #000000;
+            --card-color: #1C1C1E;
+            --text-primary: #FFFFFF;
+            --text-secondary: #8E8E93;
+            --accent-blue: #0A84FF;
+            --accent-green: #30D158;
+            --separator: #38383A;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-stack);
+            margin: 0;
+            padding: 0;
+            padding-bottom: 40px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 16px 10px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 0.5px solid var(--separator);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        /* Segmented Control (Tabs) */
+        .tabs {
+            display: flex;
+            background-color: #2C2C2E;
+            padding: 2px;
+            border-radius: 9px;
+            margin-bottom: 10px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #FFFFFF;
+            background: transparent;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background-color: #636366;
+            color: #FFF;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Content Areas */
+        .content-section {
+            display: none;
+            padding: 16px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Chapter Cards */
+        .chapter-card {
+            background-color: var(--card-color);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .chapter-header {
+            padding: 16px;
+            border-bottom: 0.5px solid var(--separator);
+        }
+
+        .chapter-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: var(--accent-blue);
+            font-size: 16px;
+            border-bottom: 0.5px solid var(--separator);
+            transition: background 0.2s;
+        }
+
+        .link-item:last-child {
+            border-bottom: none;
+        }
+
+        .link-item:active {
+            background-color: #2C2C2E;
+        }
+
+        .icon {
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        /* Resources Grid */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .resource-card {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .res-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .res-title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="subtitle">12th Board Prep</div>
+    <h1>Good Luck ❤️</h1>
+    
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('physics')">Physics</button>
+        <button class="tab-btn" onclick="switchTab('chemistry')">Chemistry</button>
+        <button class="tab-btn" onclick="switchTab('resources')">Resources</button>
+    </div>
+</header>
+
+<!-- PHYSICS SECTION -->
+<div id="physics" class="content-section active">
+    <!-- Content injected via JS -->
+</div>
+
+<!-- CHEMISTRY SECTION -->
+<div id="chemistry" class="content-section">
+    <!-- Content injected via JS -->
+</div>
+
+<!-- RESOURCES SECTION -->
+<div id="resources" class="content-section">
+    <div class="chapter-card">
+        <div class="chapter-header">
+            <h3 class="chapter-title">Essential Downloads</h3>
+        </div>
+        <div class="resource-grid" style="padding: 16px;">
+            <a href="https://drive.google.com/file/d/19s64wovwF_ATDloqR-pDSbG1kz80uKps/view" target="_blank" class="resource-card">
+                <span class="res-icon">📘</span>
+                <span class="res-title">Arihant Physics Handbook</span>
+            </a>
+            <a href="https://drive.google.com/file/d/19s3X3FbwmpkjVrrPLmQyXZXqPHlqMcGB/view" target="_blank" class="resource-card">
+                <span class="res-icon">📙</span>
+                <span class="res-title">Arihant Chemistry Handbook</span>
+            </a>
+            <a href="https://www.notesly.in/notes/competitve-exam-neet-notes" target="_blank" class="resource-card">
+                <span class="res-icon">📝</span>
+                <span class="res-title">All Chapter Notes</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="chapter-card">
+        <div class="chapter-header">
+            <h3 class="chapter-title">Test Papers</h3>
+        </div>
+        <div class="links-list">
+            <a href="https://aajkatopper.com/nta-neet-abhyas-70-test-paper-with-solution/" target="_blank" class="link-item">
+                <span class="icon">📄</span> NTA Abhyas 70 Tests
+            </a>
+            <a href="https://cdn.shopify.com/s/files/1/0572/7299/1924/files/NEET_SQP-1.pdf?v=1697004579" target="_blank" class="link-item">
+                <span class="icon">📄</span> NEET SQP Paper
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ============================================
+    // PASTE YOUR YOUTUBE LINKS IN THE AREAS BELOW
+    // ============================================
+    
+    const physicsData = [
+        {
+            title: "Electric Charges and Fields",
+            links: [
+                "https://youtu.be/7au0P214G_M", 
+                "https://youtu.be/KChQCUuJJck", 
+                "https://youtu.be/0jhx9G0Syhk"
+            ]
+        },
+        {
+            title: "Electrostatic Potential & Capacitance",
+            links: [
+                "https://youtu.be/Ncd8qNVr8yM", 
+                "https://youtu.be/fBVe_Y2uPHU", 
+                "https://youtu.be/XDNr6lEXEwY"
+            ]
+        },
+        {
+            title: "Current Electricity",
+            links: [
+                "https://youtu.be/Xtc2SB0Aa1Y",
+                "https://youtu.be/NeZv_81kqW8",
+                "https://youtu.be/1E4FFTNuOmk"
+            ]
+        },
+        {
+            title: "Moving Charges & Magnetism",
+            links: [
+                "https://youtu.be/s4R22YCBKLc",
+                "https://youtu.be/e6GOIRYnmxg",
+                "https://youtu.be/F25GM9LSrpY"
+            ]
+        },
+        {
+            title: "Magnetism and Matter",
+            links: [
+                "https://youtu.be/j7BaaZ1iHy4",
+                "https://youtu.be/AwKqjqPcrmE",
+                "https://youtu.be/KV_1c19ZHeU"
+            ]
+        },
+        {
+            title: "Electromagnetic Induction",
+            links: [
+                "https://youtu.be/7RvdZszuRZw",
+                "https://youtu.be/oSBV6zEJh8M",
+                "https://youtu.be/UtzTUGrNLWQ"
+            ]
+        },
+        {
+            title: "Alternating Current",
+            links: [
+                "https://youtu.be/Fy3ntw_4IN8",
+                "https://youtu.be/sHais4F0u2Q",
+                "https://youtu.be/kZnm-VuG4as"
+            ]
+        },
+        {
+            title: "Electromagnetic Waves",
+            links: [
+                "https://youtu.be/FyKWoMDYQjQ",
+                "https://youtu.be/fsRFACa82xY",
+                "https://youtu.be/YDt9MkqA7vY"
+            ]
+        },
+        {
+            title: "Ray Optics",
+            links: [
+                "https://youtu.be/Ita_BAdJkTw",
+                "https://youtu.be/1ap-BuVjG6E",
+                "https://youtu.be/9dopYMCpdJQ"
+            ]
+        },
+        {
+            title: "Wave Optics",
+            links: [
+                "https://www.youtube.com/live/13xqY2vGeqk",
+                "https://youtu.be/1rb1CtDC2Lo",
+                "https://youtu.be/42VNDeEQ7GM"
+            ]
+        },
+        {
+            title: "Dual Nature of Radiation",
+            links: [
+                "https://youtu.be/PG9JYCLPCxA",
+                "https://youtu.be/YU8q5e23TwY",
+                "https://youtu.be/jJ6zQK9hSJI"
+            ]
+        },
+        {
+            title: "Atoms",
+            links: [
+                "https://youtu.be/OAc8jievJ30",
+                "https://youtu.be/zoWZpTP5AeI",
+                "https://youtu.be/alLREC3l9vU"
+            ]
+        },
+        {
+            title: "Nuclei",
+            links: [
+                "https://youtu.be/vTAS1QlqXEM",
+                "https://youtu.be/N7vA6To0Rb4",
+                "https://youtu.be/ef6DR5eA4x4"
+            ]
+        },
+        {
+            title: "Semiconductor Electronics",
+            links: [
+                "https://youtu.be/GzE_lm0q4mE",
+                "https://youtu.be/LzUASOoc3-s",
+                "https://youtu.be/gajlOYhUpBk"
+            ]
+        },
+        {
+            title: "Communication Systems",
+            links: [
+                "https://youtu.be/NpXm5ucXgPA",
+                "https://www.youtube.com/live/b_Jbl7z1KhI",
+                "https://www.youtube.com/live/NhcS0qOJwj8"
+            ]
+        }
+    ];
+
+    const chemistryData = [
+        {
+            title: "Solutions",
+            links: [
+                "https://youtu.be/VjVWv__wdFA",
+                "https://youtu.be/k6lKwvVR918",
+                "https://youtu.be/Kq8Ejy6rBlI"
+            ]
+        },
+        {
+            title: "Electrochemistry",
+            links: [
+                "https://youtu.be/lOOMY0yYpuc",
+                "https://youtu.be/Rj8xgsG3Qas",
+                "https://youtu.be/ECR7bXCVisQ"
+            ]
+        },
+        {
+            title: "Chemical Kinetics",
+            links: [
+                "https://youtu.be/NbCuuFrWlgE",
+                "https://youtu.be/ysNWETiaRBc",
+                "https://youtu.be/TMtRhOBWCZE"
+            ]
+        },
+        {
+            title: "D and F Block Elements",
+            links: [
+                "https://youtu.be/BQCVXoFVqY4",
+                "https://youtu.be/14GNoMhr91Y",
+                "https://youtu.be/ARa4sRr8DL8"
+            ]
+        },
+        {
+            title: "Coordination Compounds",
+            links: [
+                "https://youtu.be/Z7D_vOt0_JU",
+                "https://youtu.be/87AfPomOpSk",
+                "https://youtu.be/X_sLzR_ZFfI"
+            ]
+        },
+        {
+            title: "Haloalkanes and Haloarenes",
+            links: [
+                "https://youtu.be/wpKIEEnWz1A",
+                "https://youtu.be/vFWDiDt8BZU",
+                "https://youtu.be/UhfvCKAxVOU"
+            ]
+        },
+        {
+            title: "Alcohols, Phenols and Ether",
+            links: [
+                "https://youtu.be/D8P4ypBMkDQ",
+                "https://youtu.be/illUs-Rlvbc",
+                "https://youtu.be/r8e5NTkQaw0"
+            ]
+        },
+        {
+            title: "Aldehydes, Ketones & Carb Acid",
+            links: [
+                "https://youtu.be/--xmR4YWBco",
+                "https://youtu.be/ivf9km8xnAY",
+                "https://youtu.be/4pM03aPBF_k"
+            ]
+        },
+        {
+            title: "Amines",
+            links: [
+                "https://youtu.be/htHplADcg94",
+                "https://youtu.be/hY4A32slNwk",
+                "https://youtu.be/CaGg4NgNy0M"
+            ]
+        },
+        {
+            title: "Biomolecules",
+            links: [
+                "https://youtu.be/vw4hYyWF7_E",
+                "https://youtu.be/udrCo3R9XaE",
+                "https://youtu.be/bJ9Ky4ksmyA"
+            ]
+        }
+    ];
+
+    // Function to render the cards
+    function renderContent(data, elementId) {
+        const container = document.getElementById(elementId);
+        let html = "";
+        
+        data.forEach((chapter, index) => {
+            let linksHtml = "";
+            chapter.links.forEach((link, i) => {
+                linksHtml += `
+                    <a href="${link}" target="_blank" class="link-item">
+                        <span class="icon">▶️</span>
+                        <span>Video Lecture ${i + 1}</span>
+                    </a>
+                `;
+            });
+
+            html += `
+                <div class="chapter-card">
+                    <div class="chapter-header">
+                        <h3 class="chapter-title">${chapter.title}</h3>
+                    </div>
+                    <div class="links-list">
+                        ${linksHtml}
+                    </div>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+    }
+
+    // Initial Render
+    renderContent(physicsData, "physics");
+    renderContent(chemistryData, "chemistry");
+
+    // Tab Switching Logic
+    function switchTab(tabName) {
+        // Hide all sections
+        document.querySelectorAll('.content-section').forEach(div => {
+            div.classList.remove('active');
+        });
+        
+        // Deactivate all buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+            btn.style.backgroundColor = "transparent";
+            btn.style.color = "#FFF";
+        });
+
+        // Show selected section
+        document.getElementById(tabName).classList.add('active');
+        
+        // Highlight button
+        const activeBtn = event.target;
+        activeBtn.classList.add('active');
+        activeBtn.style.backgroundColor = "#636366";
+    }
+
+</script>
+
+</body>
+</html>
